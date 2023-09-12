@@ -1,0 +1,41 @@
+package com.rbs.proj;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class DateTimeInsert_MySQL {
+
+	private static final String INSERT_EMP_DATES_QUERY="INSERT INTO EMPLOYEE VALUES(?,?,?,?,?)";
+
+	public static void main(String[] args) {
+		try(Scanner sc=new Scanner(System.in);
+				Connection con=DriverManager.getConnection("jdbc:mysql:///ntaj916db","root","Priyanka@7187");
+				PreparedStatement ps=con.prepareStatement(INSERT_EMP_DATES_QUERY);
+				){
+			//READ INPUTS
+			int no=0;
+			String name=null,dob=null.tob=null,dpj=null;
+			if(sc!=null) {
+				System.out.println("Enter employee number::");
+				no=sc.nextInt();
+				System.out.println("Enter employee name::");
+				name=sc.next();
+				System.out.println("Enter employee DOB(dd-MM-yy)::");
+				dob=sc.next();
+				System.out.println("Enter employee TOB(hh:mm:ss");
+				tob=sc.next();
+				System.out.println("Enter employee DOJ (yy-MM-dd hh:mm:ss)::");
+				sc.nextLine();
+				doj=sc.nextLine();
+			}
+			//convert String date value to java.sq.Date class obj
+			//Convert string values to java.util.Date class obj
+			java.text.SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
+			java.util.Date udob=sdf.parse(dob);
+		}
+
+	}
+
+}
